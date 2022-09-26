@@ -1,0 +1,42 @@
+﻿<Window x:Class="authorization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:authorization"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="450" Width="800"
+        MinHeight="225" MinWidth="400"
+        Icon="Resources/image.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.6*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Телеком Нева Связь" VerticalAlignment="Center" FontSize="30" Margin="30"/>
+        <Image Source="/Resources/LogoTNS.jpg" HorizontalAlignment="Right"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="25"  Text="Номер"/>
+                <TextBox Name="tbxPhone" Margin="20, 0" Width="200" FontSize="25"/>
+            </StackPanel>
+            <StackPanel Margin="0,20" Orientation="Horizontal">
+                <TextBlock FontSize="25"  Text="Пароль"/>
+                <PasswordBox Name="Pswbx" Margin="13, 0" Width="200" FontSize="25" KeyDown="PasswordBox_KeyDown"/>
+            </StackPanel>
+            <StackPanel Name="CodePanel" Visibility="Hidden" Orientation="Horizontal">
+                <TextBlock FontSize="25"  Text="Код"/>
+                <TextBox Name="tbxCode" Margin="55, 0, 15, 0" Width="150" FontSize="25" KeyDown="tbxCode_KeyDown"/>
+                <Button Name="btnNewCode" IsEnabled="False" Click="btnNewCode_Click">
+                    <Image Height ="35" Source="/Resources/RefreshCode.jpg"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Height="40" HorizontalAlignment="Center">
+            <Button Name="btnEnter" FontSize="20" Margin="40, 0" Content="Вход" Width="100" Click="btnEnter_Click" Background="#4A67F7"/>
+            <Button Name="btnCancel" FontSize="20" Content="Отмена" Width="100" Click="btnCancel_Click" Background="#4A67F7"/>
+        </StackPanel>
+        <TextBox Name="tbxCodeToCopy" HorizontalAlignment="Left" Height="33" Margin="10,50,0,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+    </Grid>
+</Window>
